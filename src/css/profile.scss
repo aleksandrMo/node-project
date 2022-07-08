@@ -1,0 +1,295 @@
+$fontMain: 'Inter', sans-serif;
+$fontSub: 'Jomolhari', serif;
+
+$borderColor: #6b6b6b;
+$mainColor: #ff9153;
+$linkColor: #3083ff;
+
+$mainWidth: 994px;
+
+main {
+  .user-info {
+    margin: 10px auto;
+    width: calc(100% - 20px);
+    height: 30vw;
+    max-width: $mainWidth;
+    max-height: 240px;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    .user-img {
+      width: 30%;
+      max-width: 200px;
+      background: url('../img/user.jpg');
+      border: 1px solid $borderColor;
+    }
+    .user-text {
+      width: 70%;
+
+      p,
+      span {
+        font-family: $fontMain;
+        margin: 10px;
+      }
+      span {
+        font-size: 18px;
+      }
+
+      .name {
+        font-family: $fontMain;
+        font-size: 36px;
+        font-weight: bold;
+      }
+
+      .job {
+        font-family: $fontSub;
+        color: $borderColor;
+        font-size: 20px;
+      }
+    }
+  }
+
+  .user-main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: $mainWidth;
+    margin: auto;
+    .user-tabs {
+      display: flex;
+      max-width: $mainWidth;
+      margin: 0 auto;
+      padding-left: 30px;
+      margin-left: 20px;
+
+      .tabs-part {
+        border: 1px solid $borderColor;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        padding: 12px;
+        font-family: $fontMain;
+        transition: 0.3s;
+        z-index: 0;
+        background: #c9c18d;
+        position: relative;
+        top: 1px;
+        border-bottom: 0;
+
+        cursor: pointer;
+
+        p {
+          transition: 0.3s;
+          pointer-events: none;
+        }
+      }
+
+      .active {
+        transform: scaleX(1.2);
+        z-index: 2;
+
+        background: #fff9d4;
+
+        p {
+          transform: scaleY(1.2);
+        }
+      }
+    }
+
+    .user-main-show {
+      width: calc(100% - 20px);
+      height: 70vh;
+      margin: 10px;
+      margin-top: 0;
+      z-index: 1;
+      border: 1px solid $borderColor;
+      position: relative;
+
+      background: #fff9d4;
+
+      .func-part {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        .search {
+          display: flex;
+          justify-content: center;
+
+          input {
+            width: 30vw;
+            height: 40px;
+            padding: 5px;
+            font-family: $fontMain;
+            font-size: 16px;
+            outline: none;
+            cursor: text;
+
+            border: 1px solid $borderColor;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+          }
+          button {
+            width: 40px;
+            height: 40px;
+
+            background: #eafcff;
+            border: 1px solid $borderColor;
+            border-left: none;
+
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+
+            div {
+              cursor: pointer;
+              width: 100%;
+              height: 100%;
+              background: url('https://api.iconify.design/ant-design/search-outlined.svg?color=%233083ff')
+                no-repeat center center / contain;
+            }
+          }
+        }
+
+        .addRec {
+          font-family: $fontMain;
+        }
+      }
+
+      .screen {
+        width: calc(100% - 40px);
+        height: calc(100% - 70px);
+        margin: 20px auto;
+        margin-top: 0;
+        background: #fff;
+        border: 1px solid $borderColor;
+        overflow: auto;
+
+        .screen-part {
+          min-height: 200px;
+          margin: 10px;
+          background: #eafcff;
+          display: flex;
+          align-items: center;
+          border-bottom: 1px solid $borderColor;
+          border-top: 1px solid $borderColor;
+          cursor: pointer;
+          transition: 0.3s;
+          box-shadow: 0 5px 5px grey;
+
+          :nth-child(n) {
+            pointer-events: none;
+          }
+
+          &:hover {
+            transform: scale(1.01);
+
+            .title {
+              text-decoration: underline;
+            }
+          }
+        }
+
+        .recipe {
+          .img {
+            width: 230px;
+            height: 170px;
+            background: url('../img/top.jpg');
+            border: 1px solid $borderColor;
+            margin: 5px;
+          }
+
+          .text {
+            height: 80%;
+            font-family: $fontMain;
+            font-size: 4vw;
+            line-height: 30px;
+
+            .title {
+              font-weight: bold;
+            }
+
+            span {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1010px) {
+  main {
+    .user-info {
+      background: #eafcff7a;
+    }
+
+    .user-tabs {
+      p {
+        font-size: 20px;
+      }
+    }
+
+    .screen {
+      .screen-part {
+        .title {
+          font-size: 30px;
+        }
+
+        span {
+          font-size: 22px !important;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 670px) {
+  main {
+    .user-info {
+      padding: 5px;
+      .user-text {
+        p,
+        span {
+          margin: 3px !important;
+        }
+
+        span {
+          font-size: 4vw;
+        }
+
+        .name {
+          font-size: 6vw;
+        }
+
+        .job {
+          font-size: 5vw;
+        }
+      }
+    }
+
+    .user-main {
+      .user-tabs {
+        padding-left: 8px;
+        .tabs-part {
+          padding: 8px;
+          p {
+            font-size: 4vw;
+          }
+        }
+      }
+
+      .screen {
+        .screen-part {
+          height: 130px !important;
+        }
+
+        .recipe {
+          .img {
+            width: 130px !important;
+          }
+        }
+      }
+    }
+  }
+}
